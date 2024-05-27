@@ -272,27 +272,6 @@ address sizes   : 48 bits physical, 48 bits virtual
 power management:
 
 9. Run the command **top** and type **q** to quit. ***(1 mark)***
-processor       : 1
-vendor_id       : AuthenticAMD
-cpu family      : 25
-model           : 1
-model name      : AMD EPYC 7763 64-Core Processor
-stepping        : 1
-microcode       : 0xffffffff
-cpu MHz         : 3243.893
-cache size      : 512 KB
-physical id     : 0
-siblings        : 2
-core id         : 0
-cpu cores       : 1
-apicid          : 1
-initial apicid  : 1
-fpu             : yes
-fpu_exception   : yes
-cpuid level     : 13
-wp              : yes
-flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext invpcid_single vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm
-bugs            : sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso
 top - 01:44:17 up  4:36,  0 users,  load average: 0.20, 0.22, 0.20
 Tasks:  17 total,   1 running,  16 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  4.4 us,  4.5 sy,  0.0 ni, 90.9 id,  0.2 wa,  0.0 hi,  0.0 si,  0.0 st
@@ -306,12 +285,12 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6075.2 avail Mem
 10. Run the command **uname -a**. ***(1 mark)*** Linux codespaces-250421 6.5.0-1019-azure #20~22.04.1-Ubuntu SMP Wed Apr  3 03:28:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
 11. What is the available free memory in the system. ***(1 mark)*** 281 Mi.
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** __Fill answer here__.
+12. What is the available disk space mounted on /workspace. ***(1 mark)*** 16GB.
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** version: 6.5.0-1019-azure, hardware architecture: x86_64 GNU/Linux.
-14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** __Fill answer here__.
+14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** ls is a command that gives a simple list of files and directory while ls -asl provided more detailed listing of the file such as permissions, owner, and timestamp.
 15. What is the TLB size of the Virtual CPU. ***(1 mark)*** 2560 4K pages.
-16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
-17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __Fill answer here__.
+16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** 3243.893MHz.
+17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** PID 2687 USER codespa+ is consumes the most CPU cycles which is 2.3%.
 
 ## Running your own container instance.
 
@@ -371,8 +350,9 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** No because the container are designed to be ephemeral and stateless which means they can be created, started, stopped, and destroyed quickly and easily.
+
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** Yes.
 
 ## Running your own container with persistent storage
 
