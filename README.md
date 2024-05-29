@@ -74,8 +74,13 @@ codespace
 
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
-1. Run the command **pwd** . ***(1 mark)*** /workspaces/NatSysProject
+1. Run the command **pwd** . ***(1 mark)*** 
+```
+/workspaces/NatSysProject
+```
+
 2. Run the command **cat /etc/passwd** . ***(1 mark)*** 
+```
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -101,8 +106,10 @@ systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
 messagebus:x:104:105::/nonexistent:/usr/sbin/nologin
 codespace:x:1000:1000::/home/codespace:/bin/bash
 sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+```
 
 3. Run the command **df** . ***(1 mark)*** 
+```
 Filesystem     1K-blocks     Used Available Use% Mounted on
 overlay         32847680 14451848  16701732  47% /
 tmpfs              65536        0     65536   0% /dev
@@ -110,8 +117,10 @@ shm                65536        8     65528   1% /dev/shm
 /dev/root       30298176 24400424   5881368  81% /vscode
 /dev/sdb1       46127956      104  43752276   1% /tmp
 /dev/loop4      32847680 14451848  16701732  47% /workspaces
+```
 
 4. Run the command **du** . ***(1 mark)*** 
+```
 1972    ./images
 12      ./.git/objects/60
 12      ./.git/objects/ff
@@ -199,22 +208,32 @@ shm                65536        8     65528   1% /dev/shm
 4       ./.git/branches
 2616    ./.git
 4608    .
+```
 
-5. Run the command **ls** . ***(1 mark)*** README.md  images
+5. Run the command **ls** . ***(1 mark)*** 
+```
+README.md  images
+```
+
 6. Run the command **ls -asl** . ***(1 mark)*** 
+```
 total 36
  4 drwxrwxrwx+ 4 codespace root  4096 May 23 01:07 .
  4 drwxr-xrwx+ 5 codespace root  4096 May 23 01:07 ..
  4 drwxrwxrwx+ 9 codespace root  4096 May 23 01:23 .git
 20 -rw-rw-rw-  1 codespace root 16739 May 23 01:41 README.md
  4 drwxrwxrwx+ 2 codespace root  4096 May 23 01:07 images
+```
 
 7. Run the command **free -h** . ***(1 mark)*** 
+```
               total        used        free      shared  buff/cache   available
 Mem:          7.7Gi       1.5Gi       281Mi       1.0Mi       6.0Gi       5.9Gi
 Swap:            0B          0B          0B
+```
 
 8. Run the command **cat /proc/cpuinfo** . ***(1 mark)***
+```
 processor       : 0
 vendor_id       : AuthenticAMD
 cpu family      : 25
@@ -270,8 +289,10 @@ clflush size    : 64
 cache_alignment : 64
 address sizes   : 48 bits physical, 48 bits virtual
 power management:
+```
 
 9. Run the command **top** and type **q** to quit. ***(1 mark)***
+```
 top - 01:44:17 up  4:36,  0 users,  load average: 0.20, 0.22, 0.20
 Tasks:  17 total,   1 running,  16 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  4.4 us,  4.5 sy,  0.0 ni, 90.9 id,  0.2 wa,  0.0 hi,  0.0 si,  0.0 st
@@ -281,6 +302,7 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6075.2 avail Mem
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                             
    2687 codespa+  20   0   21.1g 344832  46464 S   2.3   4.2   0:55.30 node                                                                
    2619 codespa+  20   0  962676 103384  42112 S   1.0   1.3   0:07.29 node
+```
 
 10. Run the command **uname -a**. ***(1 mark)*** Linux codespaces-250421 6.5.0-1019-azure #20~22.04.1-Ubuntu SMP Wed Apr  3 03:28:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
