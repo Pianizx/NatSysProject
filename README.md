@@ -519,7 +519,7 @@ My Terminal:
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** **The permission of the folder /workspaces/NetSysProject is -rw-rw-rw, and it is owned by the user root and the group root**.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** **The permission of the files created which is file1.txt is -rw-rw-rw, and it is owned by the user root and the group root**.
 ```
 @Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ ls -l -a
 total 16
@@ -535,17 +535,62 @@ drwxrwxrwx+ 3 root      root      4096 May 27 08:22 .local
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+**Yes, we can change the permission of the files to user codespace with the command above**
+
+My terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ cd myroot/
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ ls -l
+total 4
+-rw-rw-rw- 1 root root 12 May 27 08:22 file1.txt
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ chmod u+x file1.txt
+chmod: changing permissions of 'file1.txt': Operation not permitted
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ cd ..
+@Pianizx ➜ /workspaces/NatSysProject (main) $ sudo chown -R codespace:codespace myroot
+@Pianizx ➜ /workspaces/NatSysProject (main) $ cd myroot
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ ls -l
+total 4
+-rw-rw-rw- 1 codespace codespace 12 May 27 08:22 file1.txt
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ chmod u+x file1.txt
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ ls -l
+total 4
+-rwxrw-rw- 1 codespace codespace 12 May 27 08:22 file1.txt
+```
 
 ## You are on your own, create your own static webpage
 
 1. Create a directory called webpage in your host machine
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ mkdir webpage
+```
+
 2. Inside the directory, create a page index.html, with any content you would like
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ cd webpage
+@Pianizx ➜ /workspaces/NatSysProject/webpage (main) $ touch index.html
+```
+
 3. Then, run the apache webserver and mount the webpage directory to it. Hint:
 ```bash
 ## the -p 8080:80 flag points the host port 8080 to the container port 80
 
 docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ -p 8080:80 httpd
+```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject/webpage (main) $ docker run --detach -v /workspaces/NatSysProject/webpage:/usr/local/apache2/htdocs/ -
+p 8080:80 httpd
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+09f376ebb190: Pull complete 
+dab55b4abfc3: Pull complete 
+4f4fb700ef54: Pull complete 
+1a6d0283f224: Pull complete 
+1abf9110528c: Pull complete 
+7bacb8f85f3a: Pull complete 
+Digest: sha256:43c7661a3243c04b0955c81ac994ea13a1d8a1e53c15023a7b3cd5e8bb25de3c
+Status: Downloaded newer image for httpd:latest
+b43c4cb7b8c340d1b2f5eca8daaa9ec6a9a3622790dad49fb7c2b23abe1a5107
 ```
 
 4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage like the one below.
