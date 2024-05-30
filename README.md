@@ -21,8 +21,8 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork Net&Sys Assignment in your repository. ***(1 mark)*** https://github.com/Pianizx/NatSysProject.
-2. How many files and folders are in this repository. ***(1 mark)*** 1.
+1. What is the link of the fork Net&Sys Assignment in your repository. ***(1 mark)*** **https://github.com/Pianizx/NatSysProject**.
+2. How many files and folders are in this repository. ***(1 mark)*** **There is 1 file**.
 
 
 ## Exploring github codespaces
@@ -54,9 +54,12 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** Ubuntu Linux.
-2. What are the two options of RAM, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** 2 cores, 8 GB RAM, and 32 GB storage, or 32 cores, 64 GB RAM, and 128 GB storage..
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** so that our work will not be lost when we want to submit our project.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** 
+**Ubuntu Linux**.
+2. What are the two options of RAM, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** 
+**2 cores, 8 GB RAM, and 32 GB storage, or 32 cores, 64 GB RAM, and 128 GB storage**.
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** 
+**so that our work will not be lost when we want to submit our project**.
 
 ## Exploring the Terminal
 
