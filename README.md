@@ -304,15 +304,24 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6075.2 avail Mem
    2619 codespa+  20   0  962676 103384  42112 S   1.0   1.3   0:07.29 node
 ```
 
-10. Run the command **uname -a**. ***(1 mark)*** Linux codespaces-250421 6.5.0-1019-azure #20~22.04.1-Ubuntu SMP Wed Apr  3 03:28:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+10. Run the command **uname -a**. ***(1 mark)*** 
+```
+Linux codespaces-250421 6.5.0-1019-azure #20~22.04.1-Ubuntu SMP Wed Apr  3 03:28:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+```
 
-11. What is the available free memory in the system. ***(1 mark)*** 281 Mi.
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** 16GB.
-13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** version: 6.5.0-1019-azure, hardware architecture: x86_64 GNU/Linux.
-14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** ls is a command that gives a simple list of files and directory while ls -asl provided more detailed listing of the file such as permissions, owner, and timestamp.
-15. What is the TLB size of the Virtual CPU. ***(1 mark)*** 2560 4K pages.
-16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** 3243.893MHz.
-17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** PID 2687 USER codespa+ is consumes the most CPU cycles which is 2.3%.
+11. What is the available free memory in the system. ***(1 mark)*** **281 Mi**.
+
+12. What is the available disk space mounted on /workspace. ***(1 mark)*** **16GB**.
+
+13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** **version: 6.5.0-1019-azure, hardware architecture: x86_64 GNU/Linux**.
+
+14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** **ls is a command that gives a simple list of files and directory while ls -asl provided more detailed listing of the file such as permissions, owner, and timestamp.**
+
+15. What is the TLB size of the Virtual CPU. ***(1 mark)*** **2560 4K pages**.
+
+16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** **3243.893MHz**.
+
+17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** **PID 2687 USER codespa+ is consumes the most CPU cycles which is 2.3%**.
 
 ## Running your own container instance.
 
@@ -321,17 +330,42 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6075.2 avail Mem
 docker pull debian
 docker run --detach -it debian
 ```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker pull debian
+Using default tag: latest
+latest: Pulling from library/debian
+Digest: sha256:fac2c0fd33e88dfd3bc88a872cfb78dcb167e74af6162d31724df69e482f886c
+Status: Image is up to date for debian:latest
+docker.io/library/debian:latest
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker run --detach -it debian
+75fbc0cb62389856b35ca84e5aba881bc7db5364b969fdc34d86c94be28c97cd
+```
+
+
 2. This will run the debian container. To check if the debian container is running, type
 ```bash
 @joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
 f65be1987f84   debian    "bash"    4 minutes ago   Up 4 minutes             romantic_jackson
 ```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS                      PORTS     NAMES
+75fbc0cb6238   debian    "bash"    9 minutes ago   Up 9 minutes                          quizzical_taussig
+```
+
 
 3. Keep note of the name used by your container, this is usually given random names unless you specify your own name. Now run a bash command on the container. Make sure you use the name of your container instead of the one shown here. 
 ```bash
 docker exec -i -t romantic_jackson /bin/bash
 ```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker exec -i -t quizzical_taussig /bin/bash
+```
+
 
 4. Create a file on the container. First you must make sure you are in the bash command prompt of the container. The container is new, and does not have any software other than the debian OS. To create a new file, you will need an editor installed. In the bash shell of the container, run the package manager apt-get to install nano text editor. 
 
@@ -344,10 +378,66 @@ root@f65be1987f84:~# cd /root
 
 root@f65be1987f84:~# nano helloworld.txt
 ```
+My Terminal:
+```
+root@75fbc0cb6238:/# apt-get update 
+Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8786 kB]
+Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [13.8 kB]
+Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [157 kB]
+Fetched 9212 kB in 1s (7924 kB/s)
+Reading package lists... Done
+root@75fbc0cb6238:/# apt-get install nano
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libgpm2 libncursesw6
+Suggested packages:
+  gpm hunspell
+The following NEW packages will be installed:
+  libgpm2 libncursesw6 nano
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 837 kB of archives.
+After this operation, 3339 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+Get:2 http://deb.debian.org/debian bookworm/main amd64 nano amd64 7.2-1 [689 kB]
+Get:3 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+Fetched 837 kB in 0s (33.4 MB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libncursesw6:amd64.
+(Reading database ... 6090 files and directories currently installed.)
+Preparing to unpack .../libncursesw6_6.4-4_amd64.deb ...
+Unpacking libncursesw6:amd64 (6.4-4) ...
+Selecting previously unselected package nano.
+Preparing to unpack .../archives/nano_7.2-1_amd64.deb ...
+Unpacking nano (7.2-1) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../libgpm2_1.20.7-10+b1_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+Setting up libncursesw6:amd64 (6.4-4) ...
+Setting up nano (7.2-1) ...
+update-alternatives: using /bin/nano to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: using /bin/nano to provide /usr/bin/pico (pico) in auto mode
+Processing triggers for libc-bin (2.36-9+deb12u7) ...
+root@75fbc0cb6238:/# cd /root
+root@75fbc0cb6238:~# nano helloworld.txt
+```
+
 
 5. Edit your helloworld.txt, create your messsage and save by typing ctrl-X. Once saved, explore using the container to see where the file is located. Then exit the shell, by typing **exit**.
+My Terminal:
+```
+root@75fbc0cb6238:~# exit
+exit
+@Pianizx ➜ /workspaces/NatSysProject (main) $ 
+```
 
-6. Stop the container and run **docker ps -a**, and restart the container again. Is your file in the container still available?
+6. Stop the container and run **docker ps -a**, and restart the container again. Is your file in the container still available? **Yes, it still available**
 ```bash 
 @joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
 
@@ -357,8 +447,23 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 @joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
 ```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker stop quizzical_taussig
+quizzical_taussig
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
+75fbc0cb6238   debian    "bash"    17 minutes ago   Exited (137) 11 seconds ago             quizzical_taussig
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker restart quizzical_taussig
+quizzical_taussig
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker exec -i -t quizzical_taussig /bin/bash
+root@75fbc0cb6238:/# cd root
+root@75fbc0cb6238:~# ls
+helloworld.txt
+```
 
-7. Stop the container and delete the container. What happened to your helloworld.txt?
+
+7. Stop the container and delete the container. What happened to your helloworld.txt? **The helloworld.txt file is deleted because the container have been deleted**
 
 ```bash 
 @joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
@@ -369,12 +474,24 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 @joeynor ➜ /workspaces/OSProject (main) $ docker rm romantic_jackson
 ```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker stop quizzical_taussig
+quizzical_taussig
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                       PORTS     NAMES
+75fbc0cb6238   debian    "bash"    25 minutes ago   Exited (137) 4 seconds ago             quizzical_taussig
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker rm quizzical_taussig
+quizzical_taussig
+@Pianizx ➜ /workspaces/NatSysProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED      STATUS                      PORTS     NAMES
+```
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** No because the container are designed to be ephemeral and stateless which means they can be created, started, stopped, and destroyed quickly and easily.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** **No because the container are designed to be ephemeral and stateless which means they can be created, started, stopped, and destroyed quickly and easily**.
 
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** Yes.
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** **Yes, Debian Linux containers can run multiple instance simultaneously using Docker. Each container runs independently and can be configured to have its own environment**.
 
 ## Running your own container with persistent storage
 
@@ -390,10 +507,28 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 @joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
 ```
+My Terminal:
+```
+@Pianizx ➜ /workspaces/NatSysProject (main) $ mkdir myroot
+@Pianizx ➜ /workspaces/NatSysProject (main) $ cd myroot/
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ pwd
+/workspaces/NatSysProject/myroot
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+16dbf27c2bf9c6828f68ade45b33267209a9acd48035340f187f3f4539ff2033
+```
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** **The permission of the folder /workspaces/NetSysProject is -rw-rw-rw, and it is owned by the user root and the group root**.
+```
+@Pianizx ➜ /workspaces/NatSysProject/myroot (main) $ ls -l -a
+total 16
+drwxrwxrwx+ 3 codespace codespace 4096 May 27 08:25 .
+drwxrwxrwx+ 5 codespace root      4096 May 27 07:50 ..
+drwxrwxrwx+ 3 root      root      4096 May 27 08:22 .local
+-rw-rw-rw-  1 root      root        12 May 27 08:22 file1.txt
+```
+
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
